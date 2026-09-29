@@ -5,7 +5,6 @@
   <a href="README-EN.md"><img src="https://img.shields.io/badge/Documentation-English-blue?style=for-the-badge" alt="EN"></a>
   <a href="CHANGELOG-PT-BR.md"><img src="https://img.shields.io/badge/Changelog-PT--BR-purple?style=for-the-badge" alt="Changelog PT-BR"></a>
   <a href="CHANGELOG-EN.md"><img src="https://img.shields.io/badge/Changelog-EN-darkblue?style=for-the-badge" alt="Changelog EN"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=for-the-badge" alt="License"></a>
   <a href="#-sistemas-e-softwares-suportados-56-motores"><img src="https://img.shields.io/badge/Emuladores-56%20Motores-cyan?style=for-the-badge" alt="56 Emuladores"></a>
 </p>
 
@@ -100,13 +99,25 @@ powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.0
 
 ---
 
-## 👨‍💻 Autor e Comunidade
+## 👤 Sobre o Autor
 
-Desenvolvido e mantido por **Emerson Teles** (**Emertels**).
+Desenvolvido e mantido por **Emerson Teles** (conhecido na comunidade como **Emertels**).
 
 Apaixonado por tecnologia, informática, jogos, manutenção de sistemas e tradução/localização de softwares e emuladores para o Português do Brasil (PT-BR).
 
-### 🌐 Conecte-se comigo:
+### 🛠️ Projetos & Contribuições Notáveis:
+- **Suítes de Automação & Utilitários no GitHub:**
+  - **[Suite-Emuladores](https://github.com/Emertels/Suite-Emuladores)** — Suíte inteligente em PowerShell para download e atualização autônoma de 56 emuladores e frontends.
+  - **[AI-Chat-Vault](https://github.com/Emertels/AI-Chat-Vault)** — Backup portátil e recuperação de conversas locais de 20 IAs agenticas e ferramentas de programação.
+  - **[Microsoft-Photos-Fix](https://github.com/Emertels/Microsoft-Photos-Fix)** — Correção avançada em PowerShell e C# para rota de abertura e papel de parede no Microsoft Fotos.
+  - **[Roccat-Syn-Pro-Air-Fix](https://github.com/Emertels/Roccat-Syn-Pro-Air-Fix)** — Suíte definitiva de estabilização, áudio e blindagem anti-queda para headset sem fio.
+- **Emulação & Consoles:** Criador e arquiteto da **[PSBBN-Translator](https://github.com/Emertels/PSBBN-Translator)** para o PS2 (40 idiomas); localização e suporte a emuladores como **PSBBN**, **PCSX2**, **Dolphin**, **shadPS4**, **Azahar** e **RetroArch**.
+- **Softwares & Utilitários:** Tradução 100% de **DSX** (DualSense X - Trusted Translator), **ASUS GPU Tweak III**, **dnGrep**, **XWidget** e ferramentas web (**DualSense Tester**, **DualShock Tools**).
+- **Jogos:** Tradução de **Silent Hill 5: Homecoming**, projetos em andamento em **Silent Hill 4: The Room** e diversos outros aplicativos.
+
+---
+
+### 🌐 Conecte-se comigo & Comunidades Oficiais:
 
 <div align="left">
 
@@ -118,9 +129,3 @@ Apaixonado por tecnologia, informática, jogos, manutenção de sistemas e tradu
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Apoiar%20Projeto-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/emertels)
 
 </div>
-
----
-
-## 📄 Licença
-
-Distribuído sob a licença **MIT**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
