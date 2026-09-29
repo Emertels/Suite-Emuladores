@@ -1,0 +1,14 @@
+# Arquivos temporários e backups
+*.tmp
+*.temp
+*Backup*
+*.rar
+*.zip
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/

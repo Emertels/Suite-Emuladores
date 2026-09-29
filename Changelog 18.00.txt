@@ -1,0 +1,213 @@
+*Script atualizado dia 28/09/2026*
+CHANGELOG: Baixador e Atualizador de Emuladores 18.00:
+⭢ Internacionalização Completa (10 Idiomas): Implementação de reconhecimento automático do idioma do sistema operacional e dicionário integrado com suporte nativo a 10 idiomas: Português (pt), Inglês (en), Espanhol (es), Francês (fr), Alemão (de), Italiano (it), Japonês (ja), Chinês Simplificado (zh), Russo (ru) e Coreano (ko). Inclui suporte a parâmetro de inicialização manual (-Lang <code>) e fallback universal automático para o Inglês.
+⭢ Blindagem Anti-Queda do MEKA (Arquitetura Híbrida Inteligente): O sistema de rastreamento do MEKA foi totalmente reestruturado com a rotina MEKA_Dual. O script consulta primariamente o AppVeyor CI em busca das compilações contínuas mais recentes (Nightly). Se os artefatos do AppVeyor estiverem expirados (limite de 30 dias) ou o serviço indisponível, o sistema comuta de forma instantânea e 100% silenciosa para as versões oficiais estáveis no GitHub (ocornut/meka), sem poluição visual ou mensagens de erro na tela.
+⭢ Atualização de Nomenclatura e Radar do jgenesis: Correção e calibragem no rastreador do emulador jgenesis, adaptado para a nova nomenclatura de compilações do desenvolvedor após a remoção do prefixo 'gui-' (agora jgenesis-*-windows-x86_64.zip), restabelecendo o fluxo automático e contínuo de atualizações a partir do repositório oficial.
+⭢ Bypass Web Scraper de Contingência contra Rate Limit do GitHub (HTTP 403): Desenvolvido motor de raspagem resiliente (Get-GitHubReleaseAssetsWeb) que intercepta bloqueios da API REST pública do GitHub (limite anônimo de 60 requisições/hora) e extrai os links diretos de download a partir do HTML puro da página 'expanded_assets', garantindo downloads ininterruptos mesmo sob restrições severas de IP.
+⭢ Calibragem Cirúrgica de Filtros de Descarte:
+   - Xenia Canary: Injeção de regex estrito para descartar pacotes Linux (xenia_canary_linux.AppImage), baixando exclusivamente o arquivo executável comprimido para Windows.
+   - PCSX2: Adicionado filtro de badwords para ignorar compilações com símbolos de depuração (-symbols.7z, pdb, debug).
+⭢ Resolução Dinâmica de Compilações Dev do BizHawk (BizHawk_Dev): Substituído link fixo/direto por um motor autônomo com dupla camada de consulta: localiza dinamicamente o último artefato gerado na branch master do GitHub Actions (TASEmulators/BizHawk) e possui raspagem Web direta em caso de restrição de requisições de API, direcionando o download sempre para a build mais recente via nightly.link sem quebras de URLs estáticas.
+⭢ Compatibilidade Universal UTF-8 nos Scripts: Scripts principais codificados com suporte pleno a UTF-8 com BOM, garantindo compatibilidade total com o interpretador nativo do Windows PowerShell 5.1 e PowerShell 7+, sem quebra de caracteres em alfabetos cirílicos, ideogramas orientais ou acentuação latina.
+⭢ Manutenção e Sincronização dos 56 Motores: Todos os emuladores, frontends, complementos, patches e ferramentas de ROMs foram auditados e validados, mantendo ambos os scripts (Atualizador e Baixador) independentes, sincronizados e plenamente operacionais na versão 18.00.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+
+*Script atualizado dia 08/07/2026*
+CHANGELOG: Baixador e Atualizador de Emuladores 17.50:
+⭢ O ecossistema foi ampliado de forma massiva com a injeção nativa de novos motores modernos para PlayStation, Xbox e Nintendo: shadPS4 (PS4), Vita3K (PS Vita), Xemu (Xbox Clássico), DuckStation e PCSX-Redux (PS1), além do bsnes (SNES) e do gerenciador dedicado Xenia Manager (Xbox 360). Todos foram perfeitamente integrados com rotinas de download e regras de encerramento autônomo de processos.
+⭢ O sistema de rastreamento do MEKA foi totalmente reescrito e blindado, abandonando a antiga arquitetura baseada no AppVeyor. O novo motor agora é classificado como "GitHub" e varre a API oficial do desenvolvedor através da chave condicional "win32|mekaw", assegurando que o download seja feito através de compilações estáveis e imunes à exclusão por tempo.
+⭢ O bloco independente de atualização de complementos do ecossistema Nintendo Switch recebeu polimento em sua telemetria. O script agora calcula matematicamente e formata de forma dinâmica o peso dos pacotes recém-baixados no disco ($Global:FwSizeStr e $Global:KeySizeStr), reportando a Firmware detalhadamente em Megabytes e as Keys em Kilobytes de forma direta na tela de sucesso.
+⭢ A função primária de controle do painel superior (Update-HUD) foi aprimorada com o novo parâmetro de expurgo visual -Clear $true. Invocado no bloco de encerramento final (finally), ele realiza uma limpeza cirúrgica obliterando os medidores de velocidade (MB/s) e o cronômetro do terminal, entregando uma interface impecavelmente limpa para a exibição do Placar Final de processamento.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 26/06/2026*
+*CHANGELOG: Baixador e Atualizador de Emuladores 17.20:*
+⭢ Implementação do sistema de "Identidade Ninja" (Bypass anti-Cloudflare). O motor de rede global foi atualizado para emular a assinatura de um navegador real (Google Chrome 125), contornando as barreiras anti-bot e os falsos positivos de "Link ausente" no site prodkeys.net, retomando com sucesso o download autônomo das Keys do Nintendo Switch.
+⭢ Criação de um novo motor de busca exclusivo ("GitHub_Tag") para a rotina do emulador Citron-Neo. A arquitetura de varredura foi ajustada para lidar com a nova organização do repositório, que separou as compilações em gavetas específicas, passando a puxar o download diretamente da tag "nightly-windows".
+⭢ Calibragem nos radares de expressão regular (Regex) para os Patches do Xenia e para o emulador Rosalie's Mupen (RMG). O Xenia passou a ser rastreado no novo formato de compressão de arquivos do desenvolvedor (".7z"), enquanto o RMG foi adaptado para capturar a nova nomenclatura de lançamento que agora inclui o termo "Portable".
+⭢ Polimento profundo no sistema de tratamento de exceções visuais. Todos os alertas de falha no download de complementos (graphicPacks, Patches, Keys e Firmwares) foram padronizados para mensagens curtas, cirúrgicas e sem acentuação (ex: "(Erro 404)", "(Link ausente)", "(Falha de rede)"), blindando o terminal contra quebras de caracteres e garantindo um log impecável.
+⭢ Correção matemática no Placar Final e otimização do fluxo lógico de diretórios. O bug silencioso que omitia os emuladores do ecossistema Nintendo Switch do contador global de "Processados/Atualizados" foi solucionado. Adicionalmente, o Baixador agora oculta a notificação de criação de pastas caso o diretório já exista na raiz, limpando ainda mais a poluição visual do console.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 21/06/2026*
+*CHANGELOG: Atualizador de Emuladores 15.85:*
+⭢ O motor visual do terminal foi completamente reescrito sob uma arquitetura de "Linha de Montagem". Agora, o script processa, extrai e reporta o status (OK/ERRO) de cada componente individualmente em tempo real (Emulador principal, Patches, Graphic Packs, Firmwares e Keys), substituindo a antiga confirmação global por diagnósticos granulares e precisos.
+⭢ Implementação de um radar gramatical e de nomenclatura inteligente: o console agora distingue dinamicamente itens singulares e plurais nas mensagens de sucesso (ex: "graphicPacks atualizados!" vs "Ares atualizado!"), além de aplicar as tags "(32-bit)" ou "(64-bit)" exclusivamente em emuladores de matriz dupla (como FCEUX e Snes9x), garantindo um relatório de execução impecavelmente limpo.
+⭢ Novo sistema de blindagem contra vazamento de erros de API (o chamado "sangramento de tela"). Exceções verbosas, como os blocos JSON gigantes de Rate Limit do GitHub ou falhas de ausência de link no servidor, são agora interceptadas, ocultadas e substituídas por alertas curtos e padronizados (ex: "ERRO: Falha ao processar o [Nome]"), isolando o problema visualmente sem quebrar o layout ou interromper a fila.
+⭢ O processamento da Firmware e das Keys do Nintendo Switch foi desmembrado em blocos lógicos totalmente independentes. Uma falha de servidor no download de um componente não interrompe mais o fluxo nem afeta a exibição do status visual do outro.
+⭢ Remoção profunda de blocos lógicos redundantes no final da rotina de atualização. A validação de sucesso foi transferida para dentro do laço principal de cada download, tornando o núcleo de processamento mais leve, rápido e isento de falsos positivos na contagem final.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 21/05/2026*
+*CHANGELOG: Baixador de Emuladores 15.70:*
+⭢ O script passou por uma revisão de estabilidade e estrutura de código, eliminando erros críticos de sintaxe e travamentos no console ("Unexpected token") causados por loops e fechamentos incorretos de blocos de execução.
+⭢ O emulador "Mesen" teve seu radar de expressão regular (Regex) atualizado para se adaptar à nova nomenclatura de lançamentos do desenvolvedor no GitHub, passando a rastrear corretamente o formato "Mesen_X.X.X_Windows.zip" em vez da antiga tag "win-x64", retomando o fluxo contínuo de atualizações.
+⭢ O emulador "MAME-ARCADEXP" foi removido da lista de processos automatizados de download, visando aumentar a estabilidade geral da fila de execução e evitar travamentos na conexão causados pelas severas restrições e políticas de bloqueio anti-bot do provedor e Cloudflare.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 17/05/2026*
+*CHANGELOG: Atualizador de Emuladores 15.50:*
+⭢ O filtro de bloqueio de arquivos indesejados foi reescrito com expressões cirúrgicas de precisão, eliminando falsos positivos que impediam o download de versões legítimas de 64-bit cujo nome continha o número 32 em qualquer posição.
+⭢ O link estático das Nintendo Switch Keys foi completamente removido do código e substituído por um motor de raspagem dinâmica que vasculha automaticamente o site oficial do prodkeys.net, garantindo sempre o download da versão mais recente sem qualquer intervenção manual.
+⭢ O antigo bloco de alerta estático do 7-Zip foi substituído por um gestor inteligente que detecta automaticamente se o programa está ausente ou desatualizado, realiza o download da versão mais recente direto do repositório oficial no GitHub com progresso em tempo real, instala silenciosamente em segundo plano e apaga qualquer rastro da tela antes de iniciar a fila de emuladores — tudo completamente transparente ao usuário.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 15/05/2026*
+*CHANGELOG: Atualizador de Emuladores 15.40:*
+⭢ O script agora gera um ID aleatório exclusivo para a pasta temporária a cada nova execução, permitindo rodar o Atualizador principal e scripts isolados simultaneamente sem gerar o erro de arquivo sendo usado por outro processo.
+⭢ Ativada a descompactação automática nativa (GZip/Deflate) no motor de rede, reduzindo drasticamente o consumo de banda e acelerando as respostas de APIs pesadas como GitHub e Gitea.
+⭢ O funil de recepção de dados do buffer de download foi dobrado de 128KB para 256KB, maximizando a taxa de transferência de MB/s em conexões de alta velocidade.
+⭢ Adicionado um escudo de segurança anti-crash em todas as funções de coordenadas visuais do cursor, impedindo que o script quebre se o usuário redimensionar a janela do terminal durante o processo de download ou extração.
+⭢ Implementado o parâmetro estrito de diretório (-LiteralPath) nas rotinas de listagem e exclusão de arquivos, resolvendo um bug crônico do Windows que falhava ao ler pastas contendo colchetes no nome.
+⭢ O motor de busca do RPCS3 foi redirecionado para o endpoint de últimos lançamentos da API, ganhando filtros agressivos que ignoram completamente arquivos paralelos (como symbols, debug e pacotes para linux), garantindo apenas o download do executável puro.
+⭢ O link do emulador Eden foi reposicionado para o novo repositório oficial de Nightlies (Eden-CI), forçando especificamente o download da build MSVC, que é a recomendada para evitar problemas gráficos em jogos modernos.
+⭢ Injeção forçada do formato de texto UTF-8 para o ambiente global do console, garantindo que qualquer processo oculto ou comunicação externa respeite a acentuação nativa perfeitamente.
+⭢ O motor de diretórios foi reposicionado na linha de execução para agir apenas após a validação de 100% do arquivo, impedindo a criação de pastas fantasmas ou gavetas vazias no armazenamento em caso de falha no download.
+⭢ Substituição do comando nativo de criação de pastas do PowerShell pela biblioteca bruta do sistema em C# (.NET), permitindo a criação de múltiplas subpastas simultaneamente e garantindo imunidade total contra quebras do código.
+⭢ Adição nativa via API do GitHub dos emuladores RMG (Rosalie's Mupen GUI, moderno e de alta precisão para N64) e Mesen (focado na simulação perfeita de multi-sistemas retro), elevando o catálogo oficial para 56 motores.
+⭢ Implementado um sistema de segurança auxiliar (Fallback) para o MAME-ARCADEXP, que injeta um link direto de backup instantaneamente caso o robô de raspagem sofra bloqueios ou o site oficial mude de estrutura.
+⭢ O encerramento final do script foi reescrito para interagir diretamente com a leitura de hardware do teclado, travando a tela com segurança e forçando o terminal a fechar exclusivamente ao pressionar a tecla ENTER.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 10/05/2026*
+*CHANGELOG: Atualizador de Emuladores 15.10:*
+⭢Adicionado suporte nativo ao RetroArch, utilizando método de extração direto do Buildbot da Libretro, alocado na categoria de Frontends & Gerenciadores.
+⭢Inclusão dos emuladores SuperSnes9x (via API do GitHub) e SuperZSNES (via raspagem web direta do site oficial).
+⭢Adicionado o emulador Eden para Nintendo Switch, configurado para baixar o pacote msvc-standard diretamente via API do Gitea.
+⭢Criação de um módulo inteligente de cache para Nintendo Switch, que baixa a Firmware pesada (320 MB) e as Keys uma única vez na sessão e as distribui localmente para o Citron-Neo, Eden, Ryujinx e Ryujinx-Canary.
+⭢Implementação de limpeza automática na pasta Temp, que exclui os arquivos pesados da Firmware e das Keys do sistema apenas após a conclusão de toda a fila de execução.
+⭢Filtro de proteção contra o limite de taxa (Rate Limit) da API do GitHub, que intercepta o erro de excesso de downloads, extrai o IP bloqueado e exibe um aviso cinza limpo no terminal sem quebrar a automação.
+⭢Remoção da palavra "Progresso:" do painel de download, exibindo apenas a porcentagem [XX%] para um visual mais estético e minimalista.
+⭢Adicionado o indicador de porcentagem [XX%] em tempo real durante as etapas de descompactação ("Organizando arquivos / Firmware / Keys..."), proporcionando um acompanhamento visual mais estético e dinâmico.
+⭢Redução da trava de segurança de tamanho mínimo de arquivo de 10KB para 1KB, garantindo o download e a injeção segura de arquivos minúsculos, como as ProdKeys.
+⭢Aplicação de correção matemática no cursor do terminal para limpar a linha residual antes de exibir mensagens de falha, evitando que o texto vermelho de erro se sobreponha aos números de megabytes na tela.
+⭢Reorganização da lista de execução dos emuladores no final do script, removendo blocos condicionais para manter o código-fonte perfeitamente alinhado verticalmente.
+⭢Ajuste na ordem das mensagens do Project64 para exibir a confirmação de atualização com sucesso antes do aviso de injeção do Registro VIP.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 26/04/2026*
+*CHANGELOG: Atualizador de Emuladores 12.70:*
+⭢Implementação de caixas simétricas para separar visualmente as categorias "EMULADORES" e "FRONTENDS & GERENCIADORES", deixando o visual mais limpo e industrial.
+⭢O método de busca no site oficial do Dolphin foi substituído por uma injeção direta na API do robô de compilação (Dolphin CI). O script agora rastreia e extrai links dinâmicos imunes a quedas do servidor e pastas aleatórias (hash directories).
+⭢Criado um sistema de backup automático para o DeSmuME que aciona a API do GitHub Releases para buscar o emulador caso o servidor Nightly primário falhe.
+⭢Inclusão do poderoso frontend Attract-Mode Plus (ideal para Arcade) e do moderno ClrMame (Novo C++), este último equipado com um raspador dinâmico anti-bloqueio que vasculha lançamentos direto no fórum Emulab.
+⭢A lista de encerramento automático de processos foi ampliada e reorganizada em ordem estritamente alfabética, facilitando edições futuras.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 25/04/2026*
+*CHANGELOG: Atualizador de Emuladores 12.50:*
+⭢Adicionados os emuladores MAME Oficial, MAMEUI64 Classic e MAMEUI64 Plus!.
+⭢Novos links e sistema de backup inteligente para o Ryujinx e Ryujinx Canary (redirecionando para o projeto Ryubing em caso de queda da API oficial).
+⭢Como o recém-adicionado MAMEUI Plus! distribui seus arquivos dentro de uma subpasta ("mameui+"), o script remove esta pasta automaticamente e extrai tudo direto na raiz do emulador da forma correta.
+⭢Ativado o suporte de extração para arquivos ".exe" no motor do 7-Zip.
+⭢Processos do MAME incluídos na lista de encerramento automático do script.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 23/04/2026*
+*CHANGELOG: Atualizador de Emuladores 12.40:*
+⭢Adicionados os emuladores mGBA e Deecy.
+⭢Download do Keygen do Projet64 removido; a ativação agora é feita 100% via injeção direta no registro do Windows.
+⭢Nova rota de download do DeSmuME apontada para a API Oficial do GitHub para resolver o problema Erro 404 de linksque foram expirados em 90 dias.
+⭢Processos do mGBA e Deecy incluídos na lista de encerramento automático do script.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 21/04/2026*
+*CHANGELOG: Atualizador de Emuladores 12.38:*
+⭢Painel final reescrito para exibir a contagem exata de sucessos e falhas, corrigindo bugs de números negativos.
+⭢Códigos nativos do PowerShell aplicados nos erros e sumário para exibição perfeita no Windows.
+⭢Destaque de cor na etapa de organização de arquivos para facilitar o acompanhamento no terminal.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 19/04/2026*
+*CHANGELOG: Atualizador de Emuladores 12.37:*
+⭢Substituição do BITS e WebRequest pelo moderno motor HttpClient do .NET com buffer de 128KB para extrair velocidade máxima.
+⭢Implementação de instância única do HttpClient no topo do script para evitar esgotamento de portas de rede e travamentos ao baixar em lote.
+⭢Adicionado sistema de troca dinâmica de User-Agent (para Ryujinx/1.0) para contornar bloqueios de servidor e evitar falsos arquivos.
+⭢Adicionada instrução para deletar o ZIP interno do Azahar após a extração inicial, evitando duplicação de pastas e alocando na raiz correta.
+⭢Definido um limite de 3 minutos na rede para cortar conexões travadas e avançar na fila automaticamente.
+⭢Adição dos emuladores Ares, jgenesis, GearSystem, MEKA, Playnite (.7z) e EmulationStation-DE, com fechamento automático atualizado para todos.
+⭢Conexão direta com a API do GitLab para localizar e baixar a versão portátil do EmulationStation-DE com precisão.
+⭢Rastreador do Ymir focado na tag latest-nightly para baixar as versões de desenvolvimento (AVX2/SSE2) ignorando builds antigas.
+⭢Motor do AppVeyor reescrito para baixar simultaneamente as versões de 32 e 64 bits do Snes9xCombo em um único ciclo.
+⭢O script agora barra arquivos vazios ou menores que 10KB, testa integridade (7z t) antes da extração e alerta sobre a ausência do 7-Zip.
+⭢Erros visuais e caminhos imensos do 7-Zip foram ocultados e a exibição do tamanho do arquivo (MB) foi restaurada para um terminal mais limpo.
+⭢Inserção de prefixo criptográfico (Hash Prefix) em cada .zip baixado para evitar colisão na extração de pastas temporárias.
+⭢Correção de bug global na limpeza seletiva, aplicando proteção de DLLs críticas apenas no Project64 e Dolphin, mantendo a limpeza total nos demais emuladores.
+⭢Ajuste de rota e remoção de espaços extras na pasta do VBA-M para evitar erros de extração ausente.
+⭢O script tenta a API oficial do Ryujinx primeiro e, em caso de falha (Erro 502), aciona um scraper dinâmico para extrair o link direto do site.
+⭢Fórmula de média móvel exponencial aplicada para exibir uma taxa de download estável no HUD.
+⭢Checagem hexadecimal exclusiva para abortar páginas HTML disfarçadas de ZIP no Ryujinx.
+⭢Correção de cursor na quebra de linha, mantendo a barra de progresso perfeitamente ancorada ao lado do emulador.
+⭢Código enxuto e restauração de acentos nativos do PowerShell para exibição perfeita no console do Windows.
+⭢Motor configurado para baixar as compilações mais recentes do FCEUX para NES (32 e 64 bits) unificando ambas na mesma pasta.
+⭢Radar de encerramento ajustado para derrubar o EmulationStation pela assinatura correta e o recém-adicionado FCEUX.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 18/04/2026*
+*CHANGELOG: Atualizador de Emuladores 12.01:*
+⭢Adicionado FinalBurn Neo com filtro para 64-bits e integração dupla do BizHawk nas versões Estável e Nightly.
+⭢Força bruta ativada para encerrar o Cxbx-Reloaded e a família BizHawk antes da atualização.
+⭢O motor do Gearboy foi adicionado à categoria Nightly com rota de diretório exata e encerramento automático em jogo.
+⭢Varredura exclusiva de arquivos executáveis e bibliotecas antigos antes da extração, preservando pastas de saves, mods e configs intactas.
+⭢Exceção inteligente implementada para arquivos legado, garantindo o funcionamento de atalhos e integrações.
+⭢Em caso de queda de rede, a falha é interceptada instantaneamente e o script pula para o próximo da fila sem longas esperas.
+⭢Extração autônoma dos arquivos de correção da comunidade diretamente na subpasta interna do PCSX2.
+⭢Fila dupla nativa implementada para rastrear, baixar e extrair os pacotes gráficos junto com o Cemu.
+⭢O roteador desvia os pacotes automaticamente para as respectivas subpastas de patches no Xenia Edge e no Canary.
+⭢Fechamento de fluxos de rede para evitar retenção de memória em caso de falhas de download.
+⭢O script rastreia e injeta o keygen do Project64 atualizado direto na raiz do emulador para desbloqueio automático do registro VIP.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 17/04/2026*
+*CHANGELOG: Atualizador de Emuladores 11.40:*
+⭢O script identifica pacotes adicionais e gera as subpastas silenciosamente no Xenia.
+⭢A inteligência de enfileiramento lê e extrai o Xenia Canary e seus patches na mesma linha de terminal.
+⭢O Xenia Edge foi adicionado via API do GitHub, garantindo atualização independente de links estáticos.
+⭢O limite mínimo de arquivo foi reduzido para 10KB para permitir o download de pequenos pacotes oficiais sem alarmes falsos.
+⭢Removida a regra de exclusividade para executáveis no Xenia, descompactando agora o pacote completo enquanto mantém os arquivos do usuário.
+⭢Título realinhado com o monitor de download e assinatura profissional no cabeçalho.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 16/04/2026*
+*CHANGELOG: Atualizador de Emuladores 11.35:*
+⭢O script rastreia o extrator 7-Zip no PC e emite alerta vermelho pausando o sistema com link caso não o encontre.
+⭢Testa a integridade matemática do ZIP de forma silenciosa antes de extrair, descartando downloads incompletos ou corrompidos.
+⭢Captura falhas internas do 7-Zip nos bastidores e reporta os erros em vermelho no terminal imediatamente.
+⭢Encerramento forçado de requisições implementado caso o servidor externo congele na comunicação.
+⭢Apaga o aviso de download da tela em caso de queda de rede, formatando a mensagem de erro de forma alinhada.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*Script atualizado dia 15/04/2026*
+*CHANGELOG: Atualizador de Emuladores 11.29:*
+⭢Apaga esteticamente a contagem regressiva do terminal antes do início do processo.
+⭢A mensagem de download em andamento é substituída na mesma coordenada visual por marcações de sucesso ou erro total.
+⭢Redes desconectadas são acusadas instantaneamente, sem gerar falso alerta de link não localizado.
+⭢A taxa de download e o avanço exato em porcentagem são mostrados em tempo real sem sujar o painel do terminal.
+⭢Cores atualizadas para os status do terminal, com cabeçalhos unificados em amarelo para os emuladores duplos.
+⭢Códigos de caracteres aplicados para uso sem a obrigatoriedade de codificação UTF-8 BOM em novos PCs.
+⭢Eliminação de links fixos através de rastreamento nativo de sites e APIs do GitHub para buscar as versões mais atuais.
+⭢Varredura ativa do histórico oficial para ignorar compilações não destinadas ao Windows.
+⭢Adição automática do Flycast Dojo, DeSmuME, Ymir e dos três ambientes de compilação do Azahar.
+⭢Busca conjunta pelas versões de 32 e 64 bits do PPSSPP e Snes9x para extração compatível no mesmo bloco de código.
+⭢O script capta o tamanho do arquivo no HD após o download finalizado em servidores restritos para corrigir bugs visuais.
+⭢Som de notificação padrão do Windows ativado automaticamente ao finalizar a lista inteira.
+⭢Falsos firewalls da Amazon S3 e AppVeyor são ignorados através da desativação do Expect100Continue e encodificação de URL.
+
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+*ATENÇÃO:*
+-O código da automação tive que colocar hospedado, não é possível colocar nos comentários.
+-Coloquei no Linkvertise, é um link do MediaFire:
+-Eu compartilhei o arquivo puro, já está pronto, não precisa fazer aquele procedimento do início.
+-Somente abra o arquivo com o Notepad++ e altere os diretórios dos seus emuladores dentro do arquivo.
+-Arquivo "Atualizador de Emuladores de Jogos-v15.20-ByEmerson Teles.rar"
+
+*Códigos do PowerShell para fazer o .exe:*
+INSTALAR O COMPLEMENTO DO POWERSHELL: Install-Module ps2exe -Scope CurrentUser
+FAZER O .EXE COM O ÍCONE: Invoke-ps2exe -inputFile "Atualizador.ps1" -outputFile "Atualizador de Emuladores.exe" -iconFile "icone.ico"
+
+*OBS1: eu mostrei que o ícone não fica na área de trabalho (quando é enviado), mas eu fiz outros testes e ele mostra, sim, só mandar o atalho para a área de trabalho que o ícone aparecerá normalmente.*
+*OBS2: não esqueça de alterar seus diretórios manualmente dentro do Script, conforme mostro no vídeo.*
+
+*LINK para baixar o arquivo já pronto:*
+https://link-hub.net/725738/SHE4Iqo2zmDU
