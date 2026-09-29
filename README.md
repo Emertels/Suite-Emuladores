@@ -3,6 +3,8 @@
 <p align="center">
   <a href="README-PT-BR.md"><img src="https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
   <a href="README-EN.md"><img src="https://img.shields.io/badge/Documentation-English-blue?style=for-the-badge" alt="EN"></a>
+  <a href="CHANGELOG-PT-BR.md"><img src="https://img.shields.io/badge/Changelog-PT--BR-purple?style=for-the-badge" alt="Changelog PT-BR"></a>
+  <a href="CHANGELOG-EN.md"><img src="https://img.shields.io/badge/Changelog-EN-darkblue?style=for-the-badge" alt="Changelog EN"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=for-the-badge" alt="License"></a>
   <a href="#-sistemas-e-softwares-suportados-56-motores"><img src="https://img.shields.io/badge/Emuladores-56%20Motores-cyan?style=for-the-badge" alt="56 Emuladores"></a>
 </p>
@@ -100,12 +102,22 @@ powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.0
 
 ## 👨‍💻 Autor e Comunidade
 
-Desenvolvido por **Emerson Teles**.
+Desenvolvido e mantido por **Emerson Teles** (**Emertels**).
 
-* 💬 **Discord Oficial:** [Servidor Oficial Emerson Teles](https://discord.gg/cnTxQhWWQp)
-* ✈️ **Telegram de Mods:** [APKs & Mods Android](https://t.me/apksmodsandroid)
-* ☕ **Apoie o Projeto no Ko-fi:** [ko-fi.com/emertels](https://ko-fi.com/emertels)
-* 🐙 **GitHub:** [@Emertels](https://github.com/Emertels)
+Apaixonado por tecnologia, informática, jogos, manutenção de sistemas e tradução/localização de softwares e emuladores para o Português do Brasil (PT-BR).
+
+### 🌐 Conecte-se comigo:
+
+<div align="left">
+
+[![GitHub](https://img.shields.io/badge/GitHub-Emertels-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emertels)
+[![Discord](https://img.shields.io/badge/Discord-Emertels%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cnTxQhWWQp)
+[![X / Twitter](https://img.shields.io/badge/X_Twitter-@emertels-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/emertels)
+[![YouTube](https://img.shields.io/badge/YouTube-Emerson_Teles-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@emersonteles2379)
+[![Telegram](https://img.shields.io/badge/Telegram-Aplicativos%20Mods-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/apksmodsandroid)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Apoiar%20Projeto-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/emertels)
+
+</div>
 
 ---
 
