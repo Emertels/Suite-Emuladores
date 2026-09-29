@@ -1,4 +1,4 @@
-*Script atualizado dia 28/09/2026*
+﻿*Script atualizado dia 28/09/2026*
 CHANGELOG: Baixador e Atualizador de Emuladores 18.00:
 ⭢ Internacionalização Completa (10 Idiomas): Implementação de reconhecimento automático do idioma do sistema operacional e dicionário integrado com suporte nativo a 10 idiomas: Português (pt), Inglês (en), Espanhol (es), Francês (fr), Alemão (de), Italiano (it), Japonês (ja), Chinês Simplificado (zh), Russo (ru) e Coreano (ko). Inclui suporte a parâmetro de inicialização manual (-Lang <code>) e fallback universal automático para o Inglês.
 ⭢ Blindagem Anti-Queda do MEKA (Arquitetura Híbrida Inteligente): O sistema de rastreamento do MEKA foi totalmente reestruturado com a rotina MEKA_Dual. O script consulta primariamente o AppVeyor CI em busca das compilações contínuas mais recentes (Nightly). Se os artefatos do AppVeyor estiverem expirados (limite de 30 dias) ou o serviço indisponível, o sistema comuta de forma instantânea e 100% silenciosa para as versões oficiais estáveis no GitHub (ocornut/meka), sem poluição visual ou mensagens de erro na tela.
@@ -193,21 +193,3 @@ CHANGELOG: Baixador e Atualizador de Emuladores 17.50:
 ⭢O script capta o tamanho do arquivo no HD após o download finalizado em servidores restritos para corrigir bugs visuais.
 ⭢Som de notificação padrão do Windows ativado automaticamente ao finalizar a lista inteira.
 ⭢Falsos firewalls da Amazon S3 e AppVeyor são ignorados através da desativação do Expect100Continue e encodificação de URL.
-
-●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
-*ATENÇÃO:*
--O código da automação tive que colocar hospedado, não é possível colocar nos comentários.
--Coloquei no Linkvertise, é um link do MediaFire:
--Eu compartilhei o arquivo puro, já está pronto, não precisa fazer aquele procedimento do início.
--Somente abra o arquivo com o Notepad++ e altere os diretórios dos seus emuladores dentro do arquivo.
--Arquivo "Atualizador de Emuladores de Jogos-v15.20-ByEmerson Teles.rar"
-
-*Códigos do PowerShell para fazer o .exe:*
-INSTALAR O COMPLEMENTO DO POWERSHELL: Install-Module ps2exe -Scope CurrentUser
-FAZER O .EXE COM O ÍCONE: Invoke-ps2exe -inputFile "Atualizador.ps1" -outputFile "Atualizador de Emuladores.exe" -iconFile "icone.ico"
-
-*OBS1: eu mostrei que o ícone não fica na área de trabalho (quando é enviado), mas eu fiz outros testes e ele mostra, sim, só mandar o atalho para a área de trabalho que o ícone aparecerá normalmente.*
-*OBS2: não esqueça de alterar seus diretórios manualmente dentro do Script, conforme mostro no vídeo.*
-
-*LINK para baixar o arquivo já pronto:*
-https://link-hub.net/725738/SHE4Iqo2zmDU
