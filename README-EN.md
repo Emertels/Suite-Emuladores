@@ -4,7 +4,7 @@
   <a href="README-PT-BR.md"><img src="https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
   <a href="README-EN.md"><img src="https://img.shields.io/badge/Documentation-English-blue?style=for-the-badge" alt="EN"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"></a>
-  <img src="https://img.shields.io/badge/Emulators-56%20Engines-cyan?style=for-the-badge" alt="56 Emulators">
+  <a href="#-supported-systems--emulators-56-engines"><img src="https://img.shields.io/badge/Emulators-56%20Engines-cyan?style=for-the-badge" alt="56 Emulators"></a>
 </p>
 
 Professional and intelligent **PowerShell** suite designed for autonomous downloading, surgical unpacking, extraction, and silent updating of an ecosystem of **56 game emulators, frontends, and ROM management utilities** on Windows.

@@ -4,7 +4,7 @@
   <a href="README-PT-BR.md"><img src="https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
   <a href="README-EN.md"><img src="https://img.shields.io/badge/Documentation-English-blue?style=for-the-badge" alt="EN"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=for-the-badge" alt="License"></a>
-  <img src="https://img.shields.io/badge/Emuladores-56%20Motores-cyan?style=for-the-badge" alt="56 Emuladores">
+  <a href="#-sistemas-e-softwares-suportados-56-motores"><img src="https://img.shields.io/badge/Emuladores-56%20Motores-cyan?style=for-the-badge" alt="56 Emuladores"></a>
 </p>
 
 Suíte profissional e inteligente em **PowerShell** voltada para download autônomo, descompactação cirúrgica, extração e atualização silenciosa de um ecossistema com **56 emuladores de jogos, frontends e ferramentas de gerenciamento de ROMs** no Windows.
