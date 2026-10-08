@@ -1,18 +1,18 @@
-# 🤖 AGENTS-PT-BR: Diretrizes de Manutenção para IA Agêntica
+﻿# 🤖 AGENTS-PT-BR: Diretrizes de Manutenção para IA Agêntica
 
-Este documento instrui modelos de linguagem, agentes de código e automações sobre as regras arquiteturais estritas que devem ser seguidas ao ler, refatorar ou expandir este repositório de scripts em PowerShell (Versão 18.00).
+Este documento instrui modelos de linguagem, agentes de código e automações sobre as regras arquiteturais estritas que devem ser seguidas ao ler, refatorar ou expandir este repositório de scripts em PowerShell (Versão 18.10).
 
 ---
 
 ## 🎯 Regras Críticas de Adaptação pelo Usuário
 
 ### 1. Configuração de Diretórios no Atualizador vs Baixador
-* **No `Atualizador de Emuladores de Jogos 18.00.ps1` (Pasta GitHub)**:
+* **No `Atualizador de Emuladores de Jogos 18.10.ps1` (Pasta GitHub)**:
   * Todos os 56 caminhos do quarto argumento (`$ExtractPath`) nas chamadas `Update-Emu` utilizam o marcador em inglês e em maiúsculas: **`PUT_YOUR_DIRECTORY_HERE`**.
   * Exemplo: `Update-Emu "Cemu" "GitHub" "cemu-project/Cemu" "PUT_YOUR_DIRECTORY_HERE\Nintendo Wii U\Cemu" "windows-x64"`.
   * Qualquer agente ou usuário deve manter essa convenção universal na pasta pública do GitHub para permitir que usuários façam substituição via `Ctrl + H`.
   * O atualizador valida com `Test-Path`; se o diretório não existir, ele reporta `"ERRO: Pasta não encontrada!"` e pula com segurança.
-* **No `Baixador de Emuladores de Jogos 18.00.ps1`**:
+* **No `Baixador de Emuladores de Jogos 18.10.ps1`**:
   * O diretório é controlado centralmente pela variável `$Base = "C:\Emuladores"`.
   * Cria as pastas automaticamente caso não existam. Não utiliza `PUT_YOUR_DIRECTORY_HERE`.
 

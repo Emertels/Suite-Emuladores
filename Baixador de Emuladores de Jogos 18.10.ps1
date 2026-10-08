@@ -32,7 +32,7 @@ if (-not $Lang -or $Lang.ToLower() -notin $SupportedLangs) {
 $Global:I18N = @{
     'pt' = @{
         'LangLabel' = 'Português';
-        'Title' = 'BAIXADOR DE EMULADORES 18.00';
+        'Title' = 'BAIXADOR DE EMULADORES 18.10';
         'By' = 'By: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Sessão iniciada:';
@@ -78,7 +78,7 @@ $Global:I18N = @{
     };
     'en' = @{
         'LangLabel' = 'English';
-        'Title' = 'EMULATOR DOWNLOADER 18.00';
+        'Title' = 'EMULATOR DOWNLOADER 18.10';
         'By' = 'By: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Session started:';
@@ -124,7 +124,7 @@ $Global:I18N = @{
     };
     'es' = @{
         'LangLabel' = 'Español';
-        'Title' = 'DESCARGADOR DE EMULADORES 18.00';
+        'Title' = 'DESCARGADOR DE EMULADORES 18.10';
         'By' = 'Por: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Sesión iniciada:';
@@ -170,7 +170,7 @@ $Global:I18N = @{
     };
     'fr' = @{
         'LangLabel' = 'Français';
-        'Title' = 'TÉLÉCHARGEUR D''ÉMULATEURS 18.00';
+        'Title' = 'TÉLÉCHARGEUR D''ÉMULATEURS 18.10';
         'By' = 'Par : Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Session commencée :';
@@ -216,7 +216,7 @@ $Global:I18N = @{
     };
     'de' = @{
         'LangLabel' = 'Deutsch';
-        'Title' = 'EMULATOR-DOWNLOADER 18.00';
+        'Title' = 'EMULATOR-DOWNLOADER 18.10';
         'By' = 'Von: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Sitzung gestartet:';
@@ -262,7 +262,7 @@ $Global:I18N = @{
     };
     'it' = @{
         'LangLabel' = 'Italiano';
-        'Title' = 'SCARICATORE DI EMULATORI 18.00';
+        'Title' = 'SCARICATORE DI EMULATORI 18.10';
         'By' = 'Di: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Sessione avviata:';
@@ -308,7 +308,7 @@ $Global:I18N = @{
     };
     'ja' = @{
         'LangLabel' = '日本語';
-        'Title' = 'エミュレータダウンローダー 18.00';
+        'Title' = 'エミュレータダウンローダー 18.10';
         'By' = '作成者: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'セッション開始:';
@@ -354,7 +354,7 @@ $Global:I18N = @{
     };
     'zh' = @{
         'LangLabel' = '简体中文';
-        'Title' = '模拟器下载器 18.00';
+        'Title' = '模拟器下载器 18.10';
         'By' = '作者: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = '会话已启动:';
@@ -400,7 +400,7 @@ $Global:I18N = @{
     };
     'ru' = @{
         'LangLabel' = 'Русский';
-        'Title' = 'ЗАГРУЗЧИК ЭМУЛЯТОРОВ 18.00';
+        'Title' = 'ЗАГРУЗЧИК ЭМУЛЯТОРОВ 18.10';
         'By' = 'Автор: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = 'Сессия начата:';
@@ -446,7 +446,7 @@ $Global:I18N = @{
     };
     'ko' = @{
         'LangLabel' = '한국어';
-        'Title' = '에뮬레이터 다운로더 18.00';
+        'Title' = '에뮬레이터 다운로더 18.10';
         'By' = '제작: Emerson';
         'Author' = 'Teles';
         'SessionStarted' = '세션 시작됨:';
@@ -801,39 +801,18 @@ try {
         [System.IO.Directory]::CreateDirectory($ExtractTemp) | Out-Null 
          
         if ($Name -match "ARCADE" -and $ZipFile -match "32bit") { 
-            & $7z e "$ZipFile" "-o$ExtractTemp" "*.exe" -y -aoa -bso0 -bsp1 | ForEach-Object {
-                if ($_ -match '(\d{1,3})%') {
-                    try {
-                        [Console]::SetCursorPosition(0, $Global:LOrgY)
-                        Write-Host "$((T 'Organizing')) [$($matches[1])%]   " -NoNewline -ForegroundColor Magenta
-                    } catch {}
-                }
-            }
+            & $7z e "$ZipFile" "-o$ExtractTemp" "*.exe" -y -aoa -bso0 -bsp0 2>&1 | Out-Null
             $exe32 = Join-Path $ExtractTemp "arcade.exe" 
             if (Test-Path -LiteralPath $exe32) { Rename-Item -LiteralPath $exe32 -NewName "arcade_x86.exe" -Force } 
         } else { 
-            & $7z x "$ZipFile" "-o$ExtractTemp" -y -aoa -bso0 -bsp1 | ForEach-Object {
-                if ($_ -match '(\d{1,3})%') {
-                    try {
-                        [Console]::SetCursorPosition(0, $Global:LOrgY)
-                        Write-Host "$((T 'Organizing')) [$($matches[1])%]   " -NoNewline -ForegroundColor Magenta
-                    } catch {}
-                }
-            }
+            & $7z x "$ZipFile" "-o$ExtractTemp" -y -aoa -bso0 -bsp0 2>&1 | Out-Null
         } 
          
         if ($Name -match "Azahar") { 
             $Check = Get-ChildItem -LiteralPath $ExtractTemp -ErrorAction SilentlyContinue | Where-Object { $_.Extension -match '.zip|.7z' } 
             if ($Check) {  
                 $InnerZip = $Check[0].FullName 
-                & $7z x "$InnerZip" "-o$ExtractTemp" -y -aoa -bso0 -bsp1 | ForEach-Object {
-                    if ($_ -match '(\d{1,3})%') {
-                        try {
-                            [Console]::SetCursorPosition(0, $Global:LOrgY)
-                            Write-Host "$((T 'Organizing')) [$($matches[1])%]   " -NoNewline -ForegroundColor Magenta
-                        } catch {}
-                    }
-                }
+                & $7z x "$InnerZip" "-o$ExtractTemp" -y -aoa -bso0 -bsp0 2>&1 | Out-Null
                 Remove-Item -LiteralPath $InnerZip -Force -ErrorAction SilentlyContinue  
             } 
         } 
@@ -909,14 +888,7 @@ try {
             $Global:LOrgY = [Console]::CursorTop
             Write-Host "$((T 'OrganizingFw')) " -NoNewline -ForegroundColor Magenta
 
-            & $7z x "$($Global:FwZipPath)" "-o$FwTarget" -y -aoa -bso0 -bsp1 | ForEach-Object {
-                if ($_ -match '(\d{1,3})%') {
-                    try {
-                        [Console]::SetCursorPosition(0, $Global:LOrgY)
-                        Write-Host "$((T 'OrganizingFw')) [$($matches[1])%]   " -NoNewline -ForegroundColor Magenta
-                    } catch {}
-                }
-            }
+            & $7z x "$($Global:FwZipPath)" "-o$FwTarget" -y -aoa -bso0 -bsp0 2>&1 | Out-Null
 
             try {
                 [Console]::SetCursorPosition(0, $Global:LOrgY)
@@ -968,14 +940,7 @@ try {
             $Global:LOrgY = [Console]::CursorTop
             Write-Host "$((T 'OrganizingKeys')) " -NoNewline -ForegroundColor Magenta
 
-            & $7z e "$($Global:KeyZipPath)" "-o$KeyTarget" "*.keys" -r -y -aoa -bso0 -bsp1 | ForEach-Object {
-                if ($_ -match '(\d{1,3})%') {
-                    try {
-                        [Console]::SetCursorPosition(0, $Global:LOrgY)
-                        Write-Host "$((T 'OrganizingKeys')) [$($matches[1])%]       " -NoNewline -ForegroundColor Magenta
-                    } catch {}
-                }
-            }
+            & $7z e "$($Global:KeyZipPath)" "-o$KeyTarget" "*.keys" -r -y -aoa -bso0 -bsp0 2>&1 | Out-Null
 
             try {
                 [Console]::SetCursorPosition(0, $Global:LOrgY)
@@ -1292,24 +1257,54 @@ try {
             elseif ($Type -eq "RyujinxAPI") { 
                 $RyuUrl = $null 
                 try { 
-                    $ApiRes = Invoke-RestMethod -Uri "https://update.ryujinx.app/latest/query?os=win&arch=amd64&rc=$Repo" -UserAgent "Ryujinx/1.0" -TimeoutSec 10 -ErrorAction Stop 
+                    $ApiRes = Invoke-RestMethod -Uri "https://update.ryujinx.app/latest/query?os=win&arch=amd64&rc=$Repo" -UserAgent "Ryujinx/1.0" -TimeoutSec 2 -ErrorAction Stop 
                     if ($ApiRes -and $ApiRes.download_url) { $RyuUrl = $ApiRes.download_url } 
                 } catch { } 
 
                 if (-not $RyuUrl) { 
-                    $GitRepo = if ($Repo -eq "canary") { "Ryubing/Canary" } else { "projects/Ryubing" } 
-                    $ScrapeUrl = "https://git.ryujinx.app/$GitRepo/releases/" 
+                    $ryuRepos = if ($Repo -eq "canary") { 
+                        @("ewigl/ryubing-canary-mirror", "ADEMOLA200/Ryujinx-Canary-Builds") 
+                    } else { 
+                        @("GRID0-net/GRID0-ryujinx", "NextendoNetwork/Ryujinx-Nextendo") 
+                    } 
 
-                    try {
-                        $html = (Invoke-WebRequest -Uri $ScrapeUrl -UseBasicParsing -UserAgent "Ryujinx/1.0" -TimeoutSec 10 -ErrorAction Stop).Content 
-                        if ($html -match 'href="([^"]+win_x64\.7z)"') { 
-                            $link = $matches[1] 
-                            $RyuUrl = if ($link -match "^http") { $link } else { "https://git.ryujinx.app$link" } 
-                        } elseif ($html -match 'href="([^"]+win_x64\.zip)"') { 
-                            $link = $matches[1] 
-                            $RyuUrl = if ($link -match "^http") { $link } else { "https://git.ryujinx.app$link" } 
+                    foreach ($rRepo in $ryuRepos) { 
+                        try { 
+                            $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/$rRepo/releases" -Headers $Header -TimeoutSec 3 -ErrorAction Stop 
+                            foreach ($r in $rel) { 
+                                $asset = $r.assets | Where-Object { $_.name -match "win.*x64\.zip$|win_x64\.zip$" } | Select-Object -First 1 
+                                if (-not $asset) { 
+                                    $asset = $r.assets | Where-Object { $_.name -match "win.*x64\.7z$|win_x64\.7z$" } | Select-Object -First 1 
+                                } 
+                                if ($asset) { $RyuUrl = $asset.browser_download_url; break } 
+                            } 
+                        } catch { 
+                            try { 
+                                $resp = Invoke-WebRequest -Uri "https://github.com/$rRepo/releases" -UserAgent $UA_Chrome -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop 
+                                $tagMatches = [regex]::Matches($resp.Content, 'href="/' + [regex]::Escape($rRepo) + '/releases/tag/([^"]+)"') 
+                                foreach ($tm in $tagMatches) { 
+                                    $t = $tm.Groups[1].Value 
+                                    $assetsUrl = "https://github.com/$rRepo/releases/expanded_assets/$t" 
+                                    $aResp = Invoke-WebRequest -Uri $assetsUrl -UserAgent $UA_Chrome -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop 
+                                    $dlMatches = [regex]::Matches($aResp.Content, 'href="([^"]*releases/download/[^"]+)"') 
+                                     
+                                    $mZip = $null; $m7z = $null 
+                                    foreach ($dm in $dlMatches) { 
+                                        $dl = $dm.Groups[1].Value 
+                                        if ($dl -match "win.*x64\.zip$|win_x64\.zip$") { 
+                                            $mZip = if ($dl -match "^http") { $dl } else { "https://github.com$dl" } 
+                                            break 
+                                        } elseif ($dl -match "win.*x64\.7z$|win_x64\.7z$") { 
+                                            if (-not $m7z) { $m7z = if ($dl -match "^http") { $dl } else { "https://github.com$dl" } } 
+                                        } 
+                                    } 
+                                    if ($mZip) { $RyuUrl = $mZip; break } 
+                                    if ($m7z) { $RyuUrl = $m7z; break } 
+                                } 
+                            } catch {} 
                         } 
-                    } catch {}
+                        if ($RyuUrl) { break } 
+                    } 
                 } 
                 if ($RyuUrl) { $Urls += $RyuUrl } 
             } 
@@ -1450,7 +1445,7 @@ try {
                     $DecodedUrl = [uri]::UnescapeDataString($Url) 
                     $FaqN = if ($DecodedUrl -match '([^/]+\.(zip|7z|exe|rar))$') { $matches[1] } else { "$Name.zip" } 
                     
-                    $UrlUA = if ($Type -eq "RyujinxAPI") { "Ryujinx/1.0" } else { $UA_Chrome } 
+                    $UrlUA = if ($Type -eq "RyujinxAPI" -and $Url -match "ryujinx\.app") { "Ryujinx/1.0" } else { $UA_Chrome } 
                     
                     $SizeMB = 0 
                     try { 

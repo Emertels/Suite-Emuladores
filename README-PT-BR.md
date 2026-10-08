@@ -1,4 +1,4 @@
-﻿# 🕹️ Suíte Inteligente: Baixador e Atualizador de Emuladores (v18.00)
+﻿# 🕹️ Suíte Inteligente: Baixador e Atualizador de Emuladores (v18.10)
 
 <p align="center">
   <a href="README-PT-BR.md"><img src="https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
@@ -15,11 +15,11 @@ Suíte profissional e inteligente em **PowerShell** voltada para download autôn
 ## 📸 Demonstração / Interface
 
 <p align="center">
-  <img src="assets/baixador_preview.png" alt="Baixador de Emuladores 18.00" width="850" />
+  <img src="assets/baixador_preview.png" alt="Baixador de Emuladores 18.10" width="850" />
 </p>
 
 <p align="center">
-  <img src="assets/atualizador_preview.png" alt="Atualizador de Emuladores 18.00" width="850" />
+  <img src="assets/atualizador_preview.png" alt="Atualizador de Emuladores 18.10" width="850" />
 </p>
 
 ---
@@ -38,12 +38,12 @@ A automação foi desenvolvida com recursos autônomos de nível profissional:
 
 ## 📌 Diferenças entre os Scripts
 
-* **`Baixador de Emuladores de Jogos 18.00.ps1` (Instalação Direta)**:
+* **`Baixador de Emuladores de Jogos 18.10.ps1` (Instalação Direta)**:
   * Utiliza a variável central `$Base = "C:\Emuladores"`.
   * Cria dinamicamente toda a árvore de diretórios e subpastas caso ainda não existam.
   * Baixa e descompacta tudo diretamente no disco `C:\`, sem necessidade de configurar caminhos manualmente.
   * Ideal para criar uma instalação portátil do zero ou estruturar um novo disco de jogos.
-* **`Atualizador de Emuladores de Jogos 18.00.ps1` (Atualização de Instalação Existente)**:
+* **`Atualizador de Emuladores de Jogos 18.10.ps1` (Atualização de Instalação Existente)**:
   * Trabalha com **caminhos absolutos** pré-definidos para cada emulador.
   * No repositório oficial do GitHub, todos os links utilizam o marcador em inglês e em maiúsculo: **`PUT_YOUR_DIRECTORY_HERE`** (ex: `"PUT_YOUR_DIRECTORY_HERE\Nintendo Wii U\Cemu"`).
   * **Como configurar:** Abra o script no Bloco de Notas ou VS Code, pressione `Ctrl + H` (Substituir) e troque **`PUT_YOUR_DIRECTORY_HERE`** pelo caminho real onde seus emuladores estão instalados (ex: `D:\Games\Emuladores` ou `C:\Emuladores`).
@@ -53,7 +53,7 @@ A automação foi desenvolvida com recursos autônomos de nível profissional:
 
 ## 🌐 Suporte Multilíngue (10 Idiomas Nativos)
 
-A versão 18.00 reconhece **automaticamente** o idioma do seu sistema operacional através de `[System.Globalization.CultureInfo]::CurrentUICulture`:
+A versão 18.10 reconhece **automaticamente** o idioma do seu sistema operacional através de `[System.Globalization.CultureInfo]::CurrentUICulture`:
 
 * 🇧🇷 **Português (`pt`)**
 * 🇺🇸 **Inglês (`en`)** *(Fallback padrão universal)*
@@ -68,8 +68,8 @@ A versão 18.00 reconhece **automaticamente** o idioma do seu sistema operaciona
 
 ### Como forçar manualmente um idioma:
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".\Atualizador de Emuladores de Jogos 18.00.ps1" -Lang es
-powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.00.ps1" -Lang en
+powershell -ExecutionPolicy Bypass -File ".\Atualizador de Emuladores de Jogos 18.10.ps1" -Lang es
+powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.10.ps1" -Lang en
 ```
 
 ---
@@ -93,8 +93,8 @@ powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.0
 2. **Execução Direta**:
    * Dê um duplo clique nos arquivos `.bat` (`Baixador-de-Emuladores.bat` ou `Atualizador-de-Emuladores.bat`), ou execute via terminal:
      ```powershell
-     powershell -ExecutionPolicy Bypass -File "Atualizador de Emuladores de Jogos 18.00.ps1"
-     powershell -ExecutionPolicy Bypass -File "Baixador de Emuladores de Jogos 18.00.ps1"
+     powershell -ExecutionPolicy Bypass -File "Atualizador de Emuladores de Jogos 18.10.ps1"
+     powershell -ExecutionPolicy Bypass -File "Baixador de Emuladores de Jogos 18.10.ps1"
      ```
 
 ---
@@ -122,8 +122,7 @@ Apaixonado por tecnologia, informática, jogos, manutenção de sistemas e tradu
 <div align="left">
 
 [![GitHub](https://img.shields.io/badge/GitHub-Emertels-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emertels)
-[![Website](https://img.shields.io/badge/Website-Emerson_Teles-0070F3?style=for-the-badge&logo=googlechrome&logoColor=white)](https://emertels.github.io)
-[![Discord](https://img.shields.io/badge/Discord-Emertels%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://emertels.github.io/discord)
+[![Discord](https://img.shields.io/badge/Discord-Emertels%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cnTxQhWWQp)
 [![X / Twitter](https://img.shields.io/badge/X_Twitter-@emertels-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/emertels)
 [![YouTube](https://img.shields.io/badge/YouTube-Emerson_Teles-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@emersonteles2379)
 [![Telegram](https://img.shields.io/badge/Telegram-Aplicativos%20Mods-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/apksmodsandroid)

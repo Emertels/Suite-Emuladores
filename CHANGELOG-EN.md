@@ -1,4 +1,4 @@
-# 📜 Version History / Changelog (English)
+﻿# 📜 Version History / Changelog (English)
 
 <p align="center">
   <a href="CHANGELOG-PT-BR.md"><img src="https://img.shields.io/badge/Changelog-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
@@ -8,7 +8,28 @@
 
 ---
 
-## 🚀 [18.00] - 2026-09-28
+## 🚀 [18.10] - 2026-10-08
+* **Restoration & Dynamic Resolution for Ryujinx & Ryujinx-Canary Ecosystem:**
+  * **Diagnostic & Fallback Strategy:** Due to the permanent shutdown of legacy upstream servers (`update.ryujinx.app` and `git.ryujinx.app` connection timeouts), the `RyujinxAPI` resolver was completely redesigned into an autonomous, multi-tier engine.
+  * **Ryujinx Stable:** Autonomous tracking querying the active community repository `GRID0-net/GRID0-ryujinx` (with fallback to `NextendoNetwork/Ryujinx-Nextendo`), dynamically fetching the latest Windows x64 build (`win_x64.zip` / `win_x64.7z`).
+  * **Ryujinx Canary:** Autonomous tracking querying the active release mirror `ewigl/ryubing-canary-mirror` (with fallback to `ADEMOLA200/Ryujinx-Canary-Builds`), dynamically retrieving the freshest Canary build available.
+  * **Dual Anti-Rate-Limit Layer:** Both resolvers query GitHub API with automatic seamless fallback to pure HTML scraping (`expanded_assets`), guaranteeing 100% dynamic releases with zero hardcoded URLs and immune to HTTP 403 limits.
+* **Permanent Fix for HUD Visual Overlap Glitch ("Organizing files..."):**
+  * **Root Cause:** 7-Zip progress streaming (`-bsp1` piped into PowerShell) produced excessive output bursts and linebreaks on massive archives (such as RetroArch and Playnite), pushing console buffers down and desynchronizing the recorded cursor coordinate (`$Global:LOrgY`). This caused progress lines to overwrite subsequent emulator headers and remain orphaned on screen.
+  * **Clean Resolution:** 7-Zip extraction now operates completely silently (`-bso0 -bsp0 2>&1 | Out-Null`). The console displays a clean stationary organizing status without buffer scrolling, and the `finally` block precisely erases the line and prints the green success message with zero screen artifacts.
+* **Continuous Dynamic Resolution for BizHawk Dev (Nightly):**
+  * Engine (`BizHawk_Dev`) fully integrated across main scripts, dynamically querying master branch continuous artifacts via GitHub Actions and `nightly.link` without hardcoded direct links.
+* **ClrMamePro Synchronization & Verification:**
+  * Standardized `ClrMame_Pro_Combo` across all scripts, verifying folder existence before triggering downloads and properly sorting dual binaries into `ClrMamePro-32` and `ClrMamePro-64`.
+* **Nintendo Switch Local Paths Update:**
+  * Updated user default directories for Ryujinx and Ryujinx Canary in the local Updater (`D:\Games\Emuladores\Nintendo Switch\Ryujinx` and `D:\Games\Emuladores\Nintendo Switch\Ryujinx Canary`), preserving 56 `PUT_YOUR_DIRECTORY_HERE` placeholders in the GitHub edition.
+* **HUD Header Symmetry & Centering:**
+  * Author spacing mathematically adjusted to 7 spaces, symmetrically centering "Teles" right beneath "Emerson" across all 10 language profiles.
+* **Universal 18.10 Release Alignment:**
+  * All scripts, `.bat` launchers, dictionaries, and documentation updated to v18.10 with 0 AST parse errors and UTF-8 BOM encoding.
+
+---
+## 🚀 [18.10] - 2026-09-28
 * **Full Internationalization (10 Native Languages):** Autonomous operating system language detection (`[System.Globalization.CultureInfo]::CurrentUICulture`) and built-in dictionary supporting 10 languages: Portuguese (`pt`), English (`en`), Spanish (`es`), French (`fr`), German (`de`), Italian (`it`), Japanese (`ja`), Simplified Chinese (`zh`), Russian (`ru`), and Korean (`ko`). Full support for manual runtime override (`-Lang <code>`) and universal automatic fallback to English.
 * **MEKA Anti-Failover Shield (Hybrid `MEKA_Dual` Architecture):** Tracking completely re-architected. Primarily queries AppVeyor CI for fresh continuous integration nightlies. If AppVeyor artifacts are expired (30-day retention limit) or unavailable, it instantly and 100% silently switches to official stable GitHub Releases (`ocornut/meka`), without terminal errors or visual clutter.
 * **jgenesis Upstream Naming & Radar Alignment:** Calibrated regex tracking for jgenesis following upstream build renaming (removal of `gui-` prefix to `jgenesis-*-windows-x86_64.zip`), restoring uninterrupted automated updates.

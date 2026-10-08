@@ -1,4 +1,4 @@
-# 📜 Histórico de Alterações / Changelog (Português)
+﻿# 📜 Histórico de Alterações / Changelog (Português)
 
 <p align="center">
   <a href="CHANGELOG-PT-BR.md"><img src="https://img.shields.io/badge/Changelog-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
@@ -8,7 +8,28 @@
 
 ---
 
-## 🚀 [18.00] - 28/09/2026
+## 🚀 [18.10] - 08/10/2026
+* **Recuperação e Resolução Dinâmica do Ecossistema Ryujinx & Ryujinx-Canary:**
+  * **Diagnóstico e Contingência:** Diante da queda definitiva dos servidores legados (`update.ryujinx.app` e `git.ryujinx.app` - timeout permanente), o motor `RyujinxAPI` foi completamente reformulado sob uma arquitetura de consulta autônoma e resiliente.
+  * **Ryujinx Estável:** Rastreamento dinâmico apontado para o repositório comunitário ativo `GRID0-net/GRID0-ryujinx` (com fallback para `NextendoNetwork/Ryujinx-Nextendo`), extraindo a compilação Windows x64 mais recente (`win_x64.zip` / `win_x64.7z`).
+  * **Ryujinx Canary:** Rastreamento autônomo conectado ao espelho de lançamentos contínuos `ewigl/ryubing-canary-mirror` (com fallback para `ADEMOLA200/Ryujinx-Canary-Builds`), garantindo acesso imediato às últimas compilações de desenvolvimento.
+  * **Camada Anti-Bloqueio Dupla:** Ambas as rotinas utilizam consulta à API do GitHub com fallback automático para o Web Scraper HTML puro (`expanded_assets`), garantindo downloads 100% dinâmicos, livres de links fixos e imunes a limites de taxa (HTTP 403).
+* **Eliminação Definitiva do Glitch Visual de Sobreposição no HUD ("Organizando arquivos..."):**
+  * **Causa Raiz:** O streaming de progresso do 7-Zip no console (`-bsp1` canalizado via pipeline) gerava centenas de quebras de linha e eventos de buffer em pacotes massivos (como RetroArch e Playnite), fazendo a janela do console rolar para baixo e desalinhar a coordenada vertical do cursor (`$Global:LOrgY`). Com isso, a barra de progresso sobrescrevia o nome do emulador seguinte e ficava congelada no terminal.
+  * **Correção Cirúrgica:** A descompactação agora é executada em modo silencioso (`-bso0 -bsp0 2>&1 | Out-Null`). O terminal exibe o status de organização estável sem rolagem e, no término da extração, o bloco `finally` limpa a linha com precisão milimétrica e imprime o status de sucesso em verde sem qualquer resíduo na tela.
+* **Resolução Dinâmica do BizHawk Dev (Nightly):**
+  * Motor autônomo (`BizHawk_Dev`) consolidado na suíte principal, localizando dinamicamente os artefatos de desenvolvimento da branch `master` no GitHub Actions e `nightly.link`, garantindo sempre a versão mais nova sem URLs estáticas.
+* **Blindagem e Sincronização do ClrMamePro:**
+  * Rotina `ClrMame_Pro_Combo` sincronizada e padronizada em todos os scripts, com verificação prévia de diretório para evitar downloads desnecessários e alocação correta nas subpastas `ClrMamePro-32` e `ClrMamePro-64`.
+* **Atualização dos Diretórios Locais do Nintendo Switch:**
+  * Atualizados os caminhos padrão do usuário para Ryujinx e Ryujinx Canary na versão local do Atualizador (`D:\Games\Emuladores\Nintendo Switch\Ryujinx` e `D:\Games\Emuladores\Nintendo Switch\Ryujinx Canary`), mantendo 56 placeholders (`PUT_YOUR_DIRECTORY_HERE`) na versão para o GitHub.
+* **Centralização Visual e Simetria do Cabeçalho:**
+  * Alinhamento do autor calibrado para 7 espaços, centralizando simetricamente "Teles" exatamente abaixo de "Emerson" em todos os 10 idiomas.
+* **Atualização Geral para a Versão 18.10:**
+  * Todos os scripts, inicializadores `.bat`, dicionários e documentos elevados para a versão 18.10 com 0 erros de sintaxe AST e codificação UTF-8 com BOM.
+
+---
+## 🚀 [18.10] - 28/09/2026
 * **Internacionalização Completa (10 Idiomas Nativos):** Implementação de reconhecimento automático do idioma do sistema operacional (`[System.Globalization.CultureInfo]::CurrentUICulture`) e dicionário interno com suporte nativo a 10 idiomas: Português (`pt`), Inglês (`en`), Espanhol (`es`), Francês (`fr`), Alemão (`de`), Italiano (`it`), Japonês (`ja`), Chinês Simplificado (`zh`), Russo (`ru`) e Coreano (`ko`). Suporte completo a override manual via parâmetro `-Lang <code>` e fallback universal automático para Inglês.
 * **Blindagem Anti-Queda do MEKA (Arquitetura Híbrida `MEKA_Dual`):** Rastreamento reestruturado. O script consulta primariamente o AppVeyor CI em busca das compilações contínuas mais recentes (Nightly). Se os artefatos estiverem expirados (limite de 30 dias) ou o serviço indisponível, o sistema comuta de forma instantânea e 100% silenciosa para as versões oficiais estáveis no GitHub (`ocornut/meka`), sem poluição visual ou mensagens de erro na tela.
 * **Atualização de Nomenclatura e Radar do jgenesis:** Calibragem no rastreador do emulador jgenesis, adaptado para a nova nomenclatura de compilações do desenvolvedor após a remoção do prefixo `gui-` (agora `jgenesis-*-windows-x86_64.zip`), restabelecendo o fluxo automático e contínuo de atualizações a partir do repositório oficial.

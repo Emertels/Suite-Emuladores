@@ -1,18 +1,18 @@
-# 🤖 AGENTS-EN: Maintenance Guidelines for Agentic AI
+﻿# 🤖 AGENTS-EN: Maintenance Guidelines for Agentic AI
 
-This document instructs Large Language Models (LLMs), AI code assistants, and automated pipelines on the strict architectural rules required when reading, refactoring, or extending this PowerShell emulation script suite (Version 18.00).
+This document instructs Large Language Models (LLMs), AI code assistants, and automated pipelines on the strict architectural rules required when reading, refactoring, or extending this PowerShell emulation script suite (Version 18.10).
 
 ---
 
 ## 🎯 Critical User Adaptation Rules
 
 ### 1. Directory Configuration in Updater vs Downloader
-* **In `Atualizador de Emuladores de Jogos 18.00.ps1` (GitHub Folder)**:
+* **In `Atualizador de Emuladores de Jogos 18.10.ps1` (GitHub Folder)**:
   * All 56 emulator target directories (the 4th argument `$ExtractPath` in `Update-Emu` calls) use the uppercase English placeholder: **`PUT_YOUR_DIRECTORY_HERE`**.
   * Example: `Update-Emu "Cemu" "GitHub" "cemu-project/Cemu" "PUT_YOUR_DIRECTORY_HERE\Nintendo Wii U\Cemu" "windows-x64"`.
   * Agents and maintainers must preserve this placeholder convention in public releases to allow users to find-and-replace (`Ctrl + H`) with their actual emulator path.
   * The updater uses `Test-Path`; if a path does not exist, it safely skips with `"ERRO: Pasta não encontrada!"`.
-* **In `Baixador de Emuladores de Jogos 18.00.ps1`**:
+* **In `Baixador de Emuladores de Jogos 18.10.ps1`**:
   * Destination is centrally managed via `$Base = "C:\Emuladores"`.
   * Creates all folders automatically. Does not use `PUT_YOUR_DIRECTORY_HERE`.
 
