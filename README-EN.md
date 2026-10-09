@@ -99,30 +99,32 @@ powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.1
 
 ---
 
-## 👤 About the Author
+## 👨‍💻 About the Author
 
 Developed and maintained by **Emerson Teles** (known in the community as **Emertels**).
 
-Passionate about technology, hardware, gaming, system maintenance, and software/emulator translation & localization into Brazilian Portuguese (PT-BR).
+Technology, computing, gaming, and system maintenance enthusiast dedicated to software localization into Brazilian Portuguese (PT-BR). Developer focused on practical utilities, productivity tools, intelligent PowerShell automation, and complete technical localization solutions that make modern software accessible to Brazilian users.
 
-### 🛠️ Notable Projects & Contributions:
-- **Automation Suites & GitHub Utilities:**
-  - **[Suite-Emuladores](https://github.com/Emertels/Suite-Emuladores)** — Intelligent PowerShell suite for autonomous downloading and updating of 56 game emulators and frontends.
-  - **[AI-Chat-Vault](https://github.com/Emertels/AI-Chat-Vault)** — Portable backup and recovery for local conversations across 20 agentic AI and coding tools.
-  - **[Microsoft-Photos-Fix](https://github.com/Emertels/Microsoft-Photos-Fix)** — Advanced PowerShell & C# fix for launch route and wallpaper associations in Microsoft Photos.
-  - **[Roccat-Syn-Pro-Air-Fix](https://github.com/Emertels/Roccat-Syn-Pro-Air-Fix)** — Definitive audio management, stabilization, and cycling fix suite for wireless headsets.
-- **Emulation & Systems:** Creator and architect of the **[PSBBN-Translator](https://github.com/Emertels/PSBBN-Translator)** for PS2 (40 languages); localization and support for emulators including **PSBBN**, **PCSX2**, **Dolphin**, **shadPS4**, **Azahar**, and **RetroArch**.
-- **Software & Utilities:** Complete 100% translation of **DSX** (DualSense X - Trusted Translator), **ASUS GPU Tweak III**, **dnGrep**, **XWidget**, and web utilities (**DualSense Tester**, **DualShock Tools**).
-- **Games & Apps:** Localization of **Silent Hill 5: Homecoming**, ongoing translation for **Silent Hill 4: The Room**, and various Android & PC applications.
+### 🛠️ Projects & Contributions
 
----
+- [AI-Chat-Vault](https://github.com/Emertels/AI-Chat-Vault) — Portable backup and recovery tool for local chat histories across 20+ AI assistants.
+- [Antigravity — PT-BR Translation](https://github.com/Emertels/Antigravity-Traducao-PTBR) — Complete Brazilian Portuguese localization package for Google Antigravity Desktop.
+- [Codex Router — PT-BR Translation](https://github.com/Emertels/CodexRouter-Traducao-PTBR) — Portable translation and localization package for Codex Router Control Center in PT-BR.
+- [Cursor AI — PT-BR Translation](https://github.com/Emertels/Cursor-Traducao-PTBR) — Deep Brazilian Portuguese localization and update suite for Cursor AI.
+- [GPU Tweak III — PT-BR Translation](https://github.com/Emertels/GPU-Tweak-III-Traducao-PTBR) — Full PT-BR translation and automated installer for ASUS GPU Tweak III.
+- [Microsoft Photos Fix](https://github.com/Emertels/Microsoft-Photos-Fix) — Advanced PowerShell & C# solution fixing fast route startup and photo viewing on Windows.
+- [PSBBN-Translator](https://github.com/Emertels/PSBBN-Translator) — Enterprise translation and localization suite for the PS2 PSBBN Definitive Project in 40 languages.
+- [Silent Hill: Homecoming — PT-BR Translation](https://github.com/Emertels/Silent-Hill-Homecoming-Traducao-PTBR) — Complete Brazilian Portuguese translation and revision for PC.
+- [Suite-Emuladores](https://github.com/Emertels/Suite-Emuladores) — Intelligent PowerShell suite for automated downloads and updates of 56 game emulators & frontends on Windows.
+- [ZCode — PT-BR Translation](https://github.com/Emertels/ZCode-Traducao-PTBR) — Full Brazilian Portuguese visual translation and localization for ZCode Desktop.
 
-### 🌐 Connect with me & Official Communities:
+### 🌐 Connect with Me & Official Communities
 
 <div align="left">
 
 [![GitHub](https://img.shields.io/badge/GitHub-Emertels-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emertels)
-[![Discord](https://img.shields.io/badge/Discord-Emertels%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cnTxQhWWQp)
+[![Website](https://img.shields.io/badge/Website-Emerson_Teles-0070F3?style=for-the-badge&logo=googlechrome&logoColor=white)](https://emertels.github.io)
+[![Discord](https://img.shields.io/badge/Discord-Emertels%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://emertels.github.io/discord)
 [![X / Twitter](https://img.shields.io/badge/X_Twitter-@emertels-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/emertels)
 [![YouTube](https://img.shields.io/badge/YouTube-Emerson_Teles-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@emersonteles2379)
 [![Telegram](https://img.shields.io/badge/Telegram-Aplicativos%20Mods-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/apksmodsandroid)
