@@ -1,4 +1,4 @@
-﻿# 🕹️ Suíte Inteligente: Baixador e Atualizador de Emuladores (v18.10)
+﻿# 🕹️ Suíte Inteligente: Baixador e Atualizador de Emuladores (v18.20)
 
 <p align="center">
   <a href="README-PT-BR.md"><img src="https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
@@ -8,18 +8,30 @@
   <a href="#-sistemas-e-softwares-suportados-56-motores"><img src="https://img.shields.io/badge/Emuladores-56%20Motores-cyan?style=for-the-badge" alt="56 Emuladores"></a>
 </p>
 
-Suíte profissional e inteligente em **PowerShell** voltada para download autônomo, descompactação cirúrgica, extração e atualização silenciosa de um ecossistema com **56 emuladores de jogos, frontends e ferramentas de gerenciamento de ROMs** no Windows.
+Suíte profissional e inteligente em **PowerShell** voltada para download autônomo, descompactação cirúrgica, extração e atualização silenciosa de um ecossistema com **57 emuladores de jogos, frontends e ferramentas de gerenciamento de ROMs** no Windows.
+
+---
+
+## 📺 Demonstração em Vídeo / Tutorial
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=nrAXke8yvkQ" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/nrAXke8yvkQ/maxresdefault.jpg" alt="Vídeo Demonstrativo - Suíte de Emuladores por Emerson Teles" width="850" />
+  </a>
+  <br>
+  <em>Assista à demonstração em vídeo e passo a passo prático no YouTube (clique na imagem acima para abrir).</em>
+</p>
 
 ---
 
 ## 📸 Demonstração / Interface
 
 <p align="center">
-  <img src="assets/baixador_preview.png" alt="Baixador de Emuladores 18.10" width="850" />
+  <img src="assets/baixador_preview.png" alt="Baixador de Emuladores 18.20" width="850" />
 </p>
 
 <p align="center">
-  <img src="assets/atualizador_preview.png" alt="Atualizador de Emuladores 18.10" width="850" />
+  <img src="assets/atualizador_preview.png" alt="Atualizador de Emuladores 18.20" width="850" />
 </p>
 
 ---
@@ -38,12 +50,12 @@ A automação foi desenvolvida com recursos autônomos de nível profissional:
 
 ## 📌 Diferenças entre os Scripts
 
-* **`Baixador de Emuladores de Jogos 18.10.ps1` (Instalação Direta)**:
+* **`Baixador de Emuladores de Jogos 18.20.ps1` (Instalação Direta)**:
   * Utiliza a variável central `$Base = "C:\Emuladores"`.
   * Cria dinamicamente toda a árvore de diretórios e subpastas caso ainda não existam.
   * Baixa e descompacta tudo diretamente no disco `C:\`, sem necessidade de configurar caminhos manualmente.
   * Ideal para criar uma instalação portátil do zero ou estruturar um novo disco de jogos.
-* **`Atualizador de Emuladores de Jogos 18.10.ps1` (Atualização de Instalação Existente)**:
+* **`Atualizador de Emuladores de Jogos 18.20.ps1` (Atualização de Instalação Existente)**:
   * Trabalha com **caminhos absolutos** pré-definidos para cada emulador.
   * No repositório oficial do GitHub, todos os links utilizam o marcador em inglês e em maiúsculo: **`PUT_YOUR_DIRECTORY_HERE`** (ex: `"PUT_YOUR_DIRECTORY_HERE\Nintendo Wii U\Cemu"`).
   * **Como configurar:** Abra o script no Bloco de Notas ou VS Code, pressione `Ctrl + H` (Substituir) e troque **`PUT_YOUR_DIRECTORY_HERE`** pelo caminho real onde seus emuladores estão instalados (ex: `D:\Games\Emuladores` ou `C:\Emuladores`).
@@ -53,7 +65,7 @@ A automação foi desenvolvida com recursos autônomos de nível profissional:
 
 ## 🌐 Suporte Multilíngue (10 Idiomas Nativos)
 
-A versão 18.10 reconhece **automaticamente** o idioma do seu sistema operacional através de `[System.Globalization.CultureInfo]::CurrentUICulture`:
+A versão 18.20 reconhece **automaticamente** o idioma do seu sistema operacional através de `[System.Globalization.CultureInfo]::CurrentUICulture`:
 
 * 🇧🇷 **Português (`pt`)**
 * 🇺🇸 **Inglês (`en`)** *(Fallback padrão universal)*
@@ -68,16 +80,16 @@ A versão 18.10 reconhece **automaticamente** o idioma do seu sistema operaciona
 
 ### Como forçar manualmente um idioma:
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".\Atualizador de Emuladores de Jogos 18.10.ps1" -Lang es
-powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.10.ps1" -Lang en
+powershell -ExecutionPolicy Bypass -File ".\Atualizador de Emuladores de Jogos 18.20.ps1" -Lang es
+powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.20.ps1" -Lang en
 ```
 
 ---
 
-## 📂 Sistemas e Softwares Suportados (56 Motores)
+## 📂 Sistemas e Softwares Suportados (57 Motores)
 
 * **Nintendo (18)**: Citron-Neo, Eden, Ryujinx, Ryujinx-Canary, Cemu, Dolphin, Azahar (3 branches: Release, Master, Plus), DeSmuME, FCEUX, bsnes, Snes9x, SuperSnes9x, SuperZSNES, Project64, Rosalie's Mupen GUI (RMG), mGBA, Gearboy, VisualBoyAdvance-M.
-* **Sony (7)**: shadPS4 (PS4), RPCS3 (PS3), PCSX2 (PS2), DuckStation (PS1), PCSX-Redux (PS1), PPSSPP (PSP), Vita3K (PS Vita).
+* **Sony (8)**: KytyPS5 (PS5), shadPS4 (PS4), RPCS3 (PS3), PCSX2 (PS2), DuckStation (PS1), PCSX-Redux (PS1), PPSSPP (PSP), Vita3K (PS Vita).
 * **Microsoft (5)**: Xemu (Xbox Clássico), Cxbx-Reloaded (Xbox Clássico), Xenia Master (Xbox 360), Xenia Canary (Xbox 360), Xenia Edge (Xbox 360).
 * **Sega / Arcade / Retro (19)**: Flycast, Flycast Dojo, Deecy, Ymir (AVX2), Ymir (SSE2), FinalBurn Neo, MAME Oficial, MAMEUI Classic, MAMEUI Plus!, ARCADE64, MEKA, Mesen, jgenesis, GearSystem, etc.
 * **Frontends & Gerenciadores (7)**: RetroArch, Playnite, EmulationStation-DE, Attract-Mode Plus, Xenia Manager, ClrMame, ClrMamePro.
@@ -93,8 +105,8 @@ powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.1
 2. **Execução Direta**:
    * Dê um duplo clique nos arquivos `.bat` (`Baixador-de-Emuladores.bat` ou `Atualizador-de-Emuladores.bat`), ou execute via terminal:
      ```powershell
-     powershell -ExecutionPolicy Bypass -File "Atualizador de Emuladores de Jogos 18.10.ps1"
-     powershell -ExecutionPolicy Bypass -File "Baixador de Emuladores de Jogos 18.10.ps1"
+     powershell -ExecutionPolicy Bypass -File "Atualizador de Emuladores de Jogos 18.20.ps1"
+     powershell -ExecutionPolicy Bypass -File "Baixador de Emuladores de Jogos 18.20.ps1"
      ```
 
 ---

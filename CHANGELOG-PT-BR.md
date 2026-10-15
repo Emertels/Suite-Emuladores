@@ -8,6 +8,41 @@
 
 ---
 
+## 🚀 [18.20] - 15/10/2026
+
+### Adicionado
+* **Integração Oficial do Emulador KytyPS5 (PlayStation 5):**
+  * Suporte nativo completo ao emulador KytyPS5 posicionado rigorosamente em ordem alfabética em todos os 4 scripts (`Atualizador` e `Baixador`).
+  * Resolução 100% autônoma e dinâmica de compilações via GitHub API e Web Scraper anti-rate-limit, filtrando e baixando automaticamente a última versão Windows x64 e ignorando builds exclusivas de macOS e Linux.
+  * Inclusão do processo `"kyty*"` no encerramento preventivo automático no topo do script.
+  * Mapeamento de diretório estruturado: `Playstation 5\KytyPS5`.
+* **Telemetria de Porcentagem em Tempo Real na Extração:**
+  * Implementação da rotina `Invoke-7zExtractWithProgress`, exibindo a porcentagem instantânea `[XX%]` em cor lilás/magenta perfeitamente alinhada ao lado de `Organizando arquivos...`, `Organizando Firmware...` e `Organizando Keys...`.
+  * Extração e limpeza cirúrgica da linha sem provocar rolagem ou desalinhamento no buffer do console.
+
+### Corrigido
+* **Blindagem de Encerramento e Permanência da Janela Ativa:**
+  * Corrigido o fechamento imediato e indesejado da janela do console ao finalizar a execução.
+  * Implementada rotina de drenagem de buffer de entrada (`KeyAvailable`), impedindo que toques acidentais no teclado durante a fila encerrem prematuramente o terminal.
+  * Tratamento de exceções nos blocos finais de cursor e sinais sonoros (`Beep`).
+  * Atualização dos inicializadores `.bat` com os parâmetros `-NoExit` e `pause` para garantir permanência da tela tanto em scripts quanto em `.exe`.
+
+* **Aceleração Multithread na Extração e Cópia:**
+  * Ativação de processamento paralelo no 7-Zip (`-mmt=on`) e cópia multithread com 16 threads (`robocopy /MT:16`) para descompactação ultrarrápida de pacotes grandes.
+* **Remoção de Avisos Supérfluos no Ryujinx:**
+  * Eliminada a exibição temporária de `(Tamanho oculto)`, apresentando diretamente a medição real em MB do arquivo baixado em disco.
+* **Proteção Atômica de Arquivos Contra Falhas de Rede/Download:**
+  * Eliminada a exclusão prematura de arquivos `.exe` e `.dll` no início do processamento.
+  * A limpeza e substituição agora só ocorrem no momento da descompactação, quando o pacote novo já foi baixado e verificado com sucesso.
+  * Em caso de queda de rede, falha de VPN ou erro 404, nenhum arquivo existente é apagado, mantendo o emulador anterior 100% intacto e operacional.
+  * Preservadas as regras de blindagem para DLLs específicas do Project64 (`BMGlib`, `SDL`, `zlib1`) e Dolphin (`DolphinQt2`, `DolphinWx`).
+
+### Alterado
+* **Elevação de Versão Geral para 18.20:**
+  * Títulos multilíngues (10 idiomas), documentações e scripts alinhados para a versão 18.20 com validação sintática AST e codificação UTF-8 com BOM.
+
+---
+
 ## 🚀 [18.10] - 08/10/2026
 * **Recuperação e Resolução Dinâmica do Ecossistema Ryujinx & Ryujinx-Canary:**
   * **Diagnóstico e Contingência:** Diante da queda definitiva dos servidores legados (`update.ryujinx.app` e `git.ryujinx.app` - timeout permanente), o motor `RyujinxAPI` foi completamente reformulado sob uma arquitetura de consulta autônoma e resiliente.
@@ -29,7 +64,7 @@
   * Todos os scripts, inicializadores `.bat`, dicionários e documentos elevados para a versão 18.10 com 0 erros de sintaxe AST e codificação UTF-8 com BOM.
 
 ---
-## 🚀 [18.10] - 28/09/2026
+## 🚀 [18.00] - 28/09/2026
 * **Internacionalização Completa (10 Idiomas Nativos):** Implementação de reconhecimento automático do idioma do sistema operacional (`[System.Globalization.CultureInfo]::CurrentUICulture`) e dicionário interno com suporte nativo a 10 idiomas: Português (`pt`), Inglês (`en`), Espanhol (`es`), Francês (`fr`), Alemão (`de`), Italiano (`it`), Japonês (`ja`), Chinês Simplificado (`zh`), Russo (`ru`) e Coreano (`ko`). Suporte completo a override manual via parâmetro `-Lang <code>` e fallback universal automático para Inglês.
 * **Blindagem Anti-Queda do MEKA (Arquitetura Híbrida `MEKA_Dual`):** Rastreamento reestruturado. O script consulta primariamente o AppVeyor CI em busca das compilações contínuas mais recentes (Nightly). Se os artefatos estiverem expirados (limite de 30 dias) ou o serviço indisponível, o sistema comuta de forma instantânea e 100% silenciosa para as versões oficiais estáveis no GitHub (`ocornut/meka`), sem poluição visual ou mensagens de erro na tela.
 * **Atualização de Nomenclatura e Radar do jgenesis:** Calibragem no rastreador do emulador jgenesis, adaptado para a nova nomenclatura de compilações do desenvolvedor após a remoção do prefixo `gui-` (agora `jgenesis-*-windows-x86_64.zip`), restabelecendo o fluxo automático e contínuo de atualizações a partir do repositório oficial.

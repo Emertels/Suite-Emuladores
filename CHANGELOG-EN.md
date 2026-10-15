@@ -8,6 +8,41 @@
 
 ---
 
+## 🚀 [18.20] - 2026-10-15
+
+### Added
+* **Official KytyPS5 (PlayStation 5) Emulator Integration:**
+  * Full native support for KytyPS5 placed in strict alphabetical order across all 4 scripts (`Updater` and `Downloader`).
+  * 100% autonomous and dynamic release resolver via GitHub API and fallback Web Scraper, automatically downloading the latest Windows x64 build and ignoring macOS/Linux-only commits.
+  * Process `"kyty*"` added to the automatic termination routine at script startup.
+  * Structured directory mapping: `Playstation 5\KytyPS5`.
+* **Real-time Extraction Progress Percentage:**
+  * Added `Invoke-7zExtractWithProgress` engine displaying instant percentage `[XX%]` in magenta/purple beside `Organizing files...`, `Organizing Firmware...`, and `Organizing Keys...`.
+  * Clean in-place updates with zero console buffer scrolling, line bleeding, or visual overlap.
+
+### Fixed
+* **Console Session Persistence & Window Kept Open:**
+  * Fixed unexpected window auto-closure upon script completion.
+  * Drained input buffer (`KeyAvailable`) to prevent accidental keystrokes from immediately closing the terminal.
+  * Guarded cursor and audio beep calls against exceptions in `finally` block.
+  * Updated `.bat` launchers with `-NoExit` and `pause` to ensure the session remains open for both scripts and compiled executables.
+
+* **Multithreaded Extraction and Copy Acceleration:**
+  * Enabled parallel core processing in 7-Zip (`-mmt=on`) and multithreaded directory copying with 16 threads (`robocopy /MT:16`) for ultra-fast archive deployment.
+* **Removal of Superfluous Warnings in Ryujinx:**
+  * Removed temporary `(Hidden size)` notification, directly presenting the accurate file size in MB after disk write.
+* **Atomic File Protection Against Network/Download Failures:**
+  * Eliminated premature deletion of `.exe` and `.dll` files before downloading.
+  * File cleanup and replacement now exclusively occurs during the final extraction stage, once the new archive is fully downloaded and verified.
+  * In case of network drops, VPN switching, or HTTP errors, no existing files are touched, preserving the existing emulator build 100% intact and working.
+  * Preserved special DLL protection rules for Project64 (`BMGlib`, `SDL`, `zlib1`) and Dolphin (`DolphinQt2`, `DolphinWx`).
+
+### Changed
+* **Universal 18.20 Version Bump:**
+  * All 10 language dictionaries, documentation, and launchers updated to v18.20 with 0 AST parse errors and UTF-8 BOM encoding.
+
+---
+
 ## 🚀 [18.10] - 2026-10-08
 * **Restoration & Dynamic Resolution for Ryujinx & Ryujinx-Canary Ecosystem:**
   * **Diagnostic & Fallback Strategy:** Due to the permanent shutdown of legacy upstream servers (`update.ryujinx.app` and `git.ryujinx.app` connection timeouts), the `RyujinxAPI` resolver was completely redesigned into an autonomous, multi-tier engine.
@@ -29,7 +64,7 @@
   * All scripts, `.bat` launchers, dictionaries, and documentation updated to v18.10 with 0 AST parse errors and UTF-8 BOM encoding.
 
 ---
-## 🚀 [18.10] - 2026-09-28
+## 🚀 [18.00] - 2026-09-28
 * **Full Internationalization (10 Native Languages):** Autonomous operating system language detection (`[System.Globalization.CultureInfo]::CurrentUICulture`) and built-in dictionary supporting 10 languages: Portuguese (`pt`), English (`en`), Spanish (`es`), French (`fr`), German (`de`), Italian (`it`), Japanese (`ja`), Simplified Chinese (`zh`), Russian (`ru`), and Korean (`ko`). Full support for manual runtime override (`-Lang <code>`) and universal automatic fallback to English.
 * **MEKA Anti-Failover Shield (Hybrid `MEKA_Dual` Architecture):** Tracking completely re-architected. Primarily queries AppVeyor CI for fresh continuous integration nightlies. If AppVeyor artifacts are expired (30-day retention limit) or unavailable, it instantly and 100% silently switches to official stable GitHub Releases (`ocornut/meka`), without terminal errors or visual clutter.
 * **jgenesis Upstream Naming & Radar Alignment:** Calibrated regex tracking for jgenesis following upstream build renaming (removal of `gui-` prefix to `jgenesis-*-windows-x86_64.zip`), restoring uninterrupted automated updates.

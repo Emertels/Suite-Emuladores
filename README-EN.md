@@ -1,4 +1,4 @@
-﻿# 🕹️ Intelligent Automation Suite: Game Emulator Downloader & Updater (v18.10)
+﻿# 🕹️ Intelligent Automation Suite: Game Emulator Downloader & Updater (v18.20)
 
 <p align="center">
   <a href="README-PT-BR.md"><img src="https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge" alt="PT-BR"></a>
@@ -15,11 +15,11 @@ Professional and intelligent **PowerShell** suite designed for autonomous downlo
 ## 📸 Screenshots & Live Terminal Interface
 
 <p align="center">
-  <img src="assets/baixador_preview.png" alt="Emulator Downloader 18.10" width="850" />
+  <img src="assets/baixador_preview.png" alt="Emulator Downloader 18.20" width="850" />
 </p>
 
 <p align="center">
-  <img src="assets/atualizador_preview.png" alt="Emulator Updater 18.10" width="850" />
+  <img src="assets/atualizador_preview.png" alt="Emulator Updater 18.20" width="850" />
 </p>
 
 ---
@@ -38,12 +38,12 @@ The automation suite was engineered with enterprise-grade autonomous mechanisms:
 
 ## 📌 Differences Between Scripts
 
-* **`Baixador de Emuladores de Jogos 18.10.ps1` (Downloader - Fresh Setup)**:
+* **`Baixador de Emuladores de Jogos 18.20.ps1` (Downloader - Fresh Setup)**:
   * Uses central root directory variable: `$Base = "C:\Emuladores"`.
   * Dynamically creates the entire folder hierarchy and subfolders if missing.
   * Downloads and extracts everything directly into `C:\Emuladores` without manual configuration.
   * Ideal for setting up a clean portable drive from scratch.
-* **`Atualizador de Emuladores de Jogos 18.10.ps1` (Updater - Existing Setup)**:
+* **`Atualizador de Emuladores de Jogos 18.20.ps1` (Updater - Existing Setup)**:
   * Uses **absolute paths** configured per emulator.
   * Pre-configured with the universal placeholder: **`PUT_YOUR_DIRECTORY_HERE`** (e.g., `"PUT_YOUR_DIRECTORY_HERE\Nintendo Wii U\Cemu"`).
   * **How to configure:** Open the script in Notepad or VS Code, press `Ctrl + H` (Replace), and replace **`PUT_YOUR_DIRECTORY_HERE`** with your local emulators root directory (e.g., `D:\Games\Emulators` or `C:\Emulators`).
@@ -53,7 +53,7 @@ The automation suite was engineered with enterprise-grade autonomous mechanisms:
 
 ## 🌐 Multilingual Support (10 Native Languages)
 
-Version 18.10 **automatically detects** your operating system's language via `[System.Globalization.CultureInfo]::CurrentUICulture`:
+Version 18.20 **automatically detects** your operating system's language via `[System.Globalization.CultureInfo]::CurrentUICulture`:
 
 * 🇧🇷 **Portuguese (`pt`)**
 * 🇺🇸 **English (`en`)** *(Default universal fallback)*
@@ -68,16 +68,16 @@ Version 18.10 **automatically detects** your operating system's language via `[S
 
 ### Manual Language Override:
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".\Atualizador de Emuladores de Jogos 18.10.ps1" -Lang en
-powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.10.ps1" -Lang es
+powershell -ExecutionPolicy Bypass -File ".\Atualizador de Emuladores de Jogos 18.20.ps1" -Lang en
+powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.20.ps1" -Lang es
 ```
 
 ---
 
-## 📂 Supported Systems & Emulators (56 Engines)
+## 📂 Supported Systems & Emulators (57 Engines)
 
 * **Nintendo (18)**: Citron-Neo, Eden, Ryujinx, Ryujinx-Canary, Cemu, Dolphin, Azahar (3 branches), DeSmuME, FCEUX, bsnes, Snes9x, SuperSnes9x, SuperZSNES, Project64, Rosalie's Mupen GUI (RMG), mGBA, Gearboy, VisualBoyAdvance-M.
-* **Sony (7)**: shadPS4 (PS4), RPCS3 (PS3), PCSX2 (PS2), DuckStation (PS1), PCSX-Redux (PS1), PPSSPP (PSP), Vita3K (PS Vita).
+* **Sony (8)**: KytyPS5 (PS5), shadPS4 (PS4), RPCS3 (PS3), PCSX2 (PS2), DuckStation (PS1), PCSX-Redux (PS1), PPSSPP (PSP), Vita3K (PS Vita).
 * **Microsoft (5)**: Xemu (Xbox), Cxbx-Reloaded (Xbox), Xenia Master (Xbox 360), Xenia Canary (Xbox 360), Xenia Edge (Xbox 360).
 * **Sega / Arcade / Retro (19)**: Flycast, Flycast Dojo, Deecy, Ymir (AVX2), Ymir (SSE2), FinalBurn Neo, MAME Official, MAMEUI Classic, MAMEUI Plus!, ARCADE64, MEKA, Mesen, jgenesis, GearSystem, etc.
 * **Frontends & Managers (7)**: RetroArch, Playnite, EmulationStation-DE, Attract-Mode Plus, Xenia Manager, ClrMame, ClrMamePro.
@@ -93,8 +93,8 @@ powershell -ExecutionPolicy Bypass -File ".\Baixador de Emuladores de Jogos 18.1
 2. **Direct Execution**:
    * Double-click `Baixador-de-Emuladores.bat` or `Atualizador-de-Emuladores.bat`, or run from PowerShell:
      ```powershell
-     powershell -ExecutionPolicy Bypass -File "Atualizador de Emuladores de Jogos 18.10.ps1"
-     powershell -ExecutionPolicy Bypass -File "Baixador de Emuladores de Jogos 18.10.ps1"
+     powershell -ExecutionPolicy Bypass -File "Atualizador de Emuladores de Jogos 18.20.ps1"
+     powershell -ExecutionPolicy Bypass -File "Baixador de Emuladores de Jogos 18.20.ps1"
      ```
 
 ---
