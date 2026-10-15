@@ -12,6 +12,18 @@ Professional and intelligent **PowerShell** suite designed for autonomous downlo
 
 ---
 
+## 📺 Video Demonstration / Tutorial
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=nrAXke8yvkQ" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/nrAXke8yvkQ/maxresdefault.jpg" alt="Video Demonstration - Emulator Suite by Emerson Teles" width="850" />
+  </a>
+  <br>
+  <em>Watch the hands-on video demonstration and tutorial on YouTube (click the image above to open).</em>
+</p>
+
+---
+
 ## 📸 Screenshots & Live Terminal Interface
 
 <p align="center">
